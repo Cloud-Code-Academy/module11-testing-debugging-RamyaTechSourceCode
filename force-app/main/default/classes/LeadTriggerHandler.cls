@@ -34,17 +34,17 @@ public with sharing class LeadTriggerHandler {
 		for (Lead ld : leadsToNormalize) {
 			if(ld.Title != null)
 			{
-				if (ld.title.contains('vp') || ld.title.contains('v.p.') || ld.title.contains('vice president')) {
+				if (ld.title.containsIgnoreCase ('vp') || ld.title.containsIgnoreCase ('v.p.') || ld.title.containsIgnoreCase ('vice president')) {
 					ld.Title = 'Vice President';
 				} else if (
-					ld.title.contains('mgr') ||
-					ld.title.contains('manage') ||
-					ld.title.contains('head of department')
+					ld.title.containsIgnoreCase ('mgr') ||
+					ld.title.containsIgnoreCase ('manage') ||
+					ld.title.containsIgnoreCase ('head of department')
 				) {
 					ld.Title = 'Manager';
-				} else if (ld.title.contains('exec') || ld.title.contains('chief') || ld.title.contains('head')) {
+				} else if (ld.title.containsIgnoreCase ('exec') || ld.title.containsIgnoreCase ('chief') || ld.title.containsIgnoreCase ('head')) {
 					ld.Title = 'Executive';
-				} else if (ld.title.contains('assist') || ld.title.contains('deputy') || ld.title.contains('jr')) {
+				} else if (ld.title.containsIgnoreCase ('assist') || ld.title.containsIgnoreCase ('deputy') || ld.title.containsIgnoreCase ('jr')) {
 					ld.Title = 'Assistant';
 				}
 				/*else{
